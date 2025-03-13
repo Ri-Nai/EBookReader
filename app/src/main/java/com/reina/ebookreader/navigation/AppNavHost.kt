@@ -11,7 +11,9 @@ import androidx.navigation.compose.composable
 import androidx.navigation.navArgument
 import com.reina.ebookreader.screens.BookDetailScreen
 import com.reina.ebookreader.screens.HomeScreen
+import com.reina.ebookreader.screens.SettingsScreen
 import android.net.Uri
+import androidx.compose.ui.unit.dp
 
 @Composable
 fun AppNavHost(
@@ -21,7 +23,12 @@ fun AppNavHost(
     NavHost(
         navController = navController,
         startDestination = AppDestinations.HOME_ROUTE,
-        modifier = Modifier.padding(innerPadding)
+        modifier = Modifier.padding(
+            top = innerPadding.calculateTopPadding(),
+            bottom = 0.dp,
+            start = 0.dp,
+            end = 0.dp
+        )
     ) {
         composable(AppDestinations.HOME_ROUTE) {
             HomeScreen(navController = navController)
@@ -36,16 +43,10 @@ fun AppNavHost(
                 onBackClick = { navController.navigateUp() }
             )
         }
-    }
-}
-
-// 导航路由
-object AppDestinations {
-    const val HOME_ROUTE = "home"
-    const val BOOK_DETAIL_ROUTE = "bookDetail/{bookId}"
-    
-    fun bookDetailRoute(bookId: String): String {
-        // 确保ID不包含特殊字符，可能会影响URL解析
-        return "bookDetail/${Uri.encode(bookId)}"
+        composable(AppDestinations.SETTINGS_ROUTE) {
+            SettingsScreen(
+                onBackClick = { navController.navigateUp() }
+            )
+        }
     }
 }

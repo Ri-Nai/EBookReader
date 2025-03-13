@@ -84,7 +84,7 @@ fun BookDetailScreen(
     ) {
         Column(
             modifier = Modifier
-                .padding(16.dp)
+                .padding(horizontal = 16.dp, vertical = 8.dp)
                 .fillMaxSize()
         ) {
             // 标题行带返回按钮
@@ -92,7 +92,7 @@ fun BookDetailScreen(
                 verticalAlignment = Alignment.CenterVertically,
                 modifier = Modifier
                     .fillMaxWidth()
-                    .padding(bottom = 16.dp)
+                    .padding(bottom = 8.dp)
             ) {
                 IconButton(onClick = onBackClick) {
                     Icon(
@@ -116,19 +116,19 @@ fun BookDetailScreen(
                         .weight(1f),
                     horizontalAlignment = Alignment.CenterHorizontally
                 ) {
-                    Spacer(modifier = Modifier.height(32.dp))
+                    Spacer(modifier = Modifier.height(16.dp))
                     Text(
                         text = "找不到书籍",
                         style = MaterialTheme.typography.headlineMedium,
                         color = MaterialTheme.colorScheme.error
                     )
-                    Spacer(modifier = Modifier.height(16.dp))
+                    Spacer(modifier = Modifier.height(8.dp))
                     Text(
                         text = "无法找到ID为 $decodedBookId 的书籍。可能是书籍已被删除或ID无效。",
                         style = MaterialTheme.typography.bodyLarge,
                         textAlign = TextAlign.Center
                     )
-                    Spacer(modifier = Modifier.height(32.dp))
+                    Spacer(modifier = Modifier.height(16.dp))
                     Button(onClick = onBackClick) {
                         Text("返回书籍列表")
                     }
@@ -143,9 +143,9 @@ fun BookDetailScreen(
                                 .weight(1f),
                             horizontalAlignment = Alignment.CenterHorizontally
                         ) {
-                            Spacer(modifier = Modifier.height(32.dp))
-                            CircularProgressIndicator()
                             Spacer(modifier = Modifier.height(16.dp))
+                            CircularProgressIndicator()
+                            Spacer(modifier = Modifier.height(8.dp))
                             Text(text = "正在加载内容...")
                         }
                     }
@@ -155,7 +155,7 @@ fun BookDetailScreen(
                             modifier = Modifier
                                 .fillMaxWidth()
                                 .weight(1f)
-                                .padding(16.dp),
+                                .padding(8.dp),
                             horizontalAlignment = Alignment.CenterHorizontally
                         ) {
                             Text(
@@ -164,7 +164,7 @@ fun BookDetailScreen(
                                 color = MaterialTheme.colorScheme.error,
                                 textAlign = TextAlign.Center
                             )
-                            Spacer(modifier = Modifier.height(32.dp))
+                            Spacer(modifier = Modifier.height(16.dp))
                             Button(onClick = onBackClick) {
                                 Text("返回书籍列表")
                             }

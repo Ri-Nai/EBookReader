@@ -56,6 +56,15 @@ dependencies {
     androidTestImplementation(platform(libs.androidx.compose.bom))
     implementation(libs.androidx.navigation.compose)
 
+    // Material Icons 扩展
+    implementation(libs.androidx.material.icons.extended)
+    
+    // DataStore 依赖
+    implementation(libs.androidx.datastore.preferences)
+    
+    // ViewModel 依赖
+    implementation(libs.lifecycle.viewmodel.compose)
+
     androidTestImplementation(libs.androidx.ui.test.junit4)
     debugImplementation(libs.androidx.ui.tooling)
     debugImplementation(libs.androidx.ui.test.manifest)

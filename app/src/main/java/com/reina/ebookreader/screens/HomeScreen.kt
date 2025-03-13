@@ -131,7 +131,7 @@ fun HomeScreen(
                 ) {
                     Column(
                         horizontalAlignment = Alignment.CenterHorizontally,
-                        modifier = Modifier.padding(16.dp)
+                        modifier = Modifier.padding(horizontal = 16.dp)
                     ) {
                         Text(
                             text = "没有书籍",
@@ -147,7 +147,7 @@ fun HomeScreen(
             } else {
                 // 书籍列表
                 LazyColumn(
-                    modifier = Modifier.padding(horizontal = 16.dp, vertical = 8.dp)
+                    modifier = Modifier.padding(horizontal = 16.dp, vertical = 4.dp)
                 ) {
                     items(books) { book ->
                         BookCard(
